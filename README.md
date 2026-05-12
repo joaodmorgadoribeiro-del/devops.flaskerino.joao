@@ -36,3 +36,25 @@ export NUMBER=50
 # Run the server
 python3 app.py
 ```
+
+DON´T FORGET
+# Run a single playbook
+ansible-playbook -i inventory.ini playbooks/01_ping.yml
+
+# Run all playbooks at once (master playbook)
+ansible-playbook -i inventory.ini main.yml
+
+# Dry-run — test without executing
+ansible-playbook -i inventory.ini main.yml --check
+
+# Verbose output — see more details
+ansible-playbook -i inventory.ini main.yml -v
+
+# List all hosts in the inventory
+ansible -i inventory.ini --list-hosts all
+
+# Ping all hosts
+ansible -i inventory.ini all -m ping
+
+# Run only on a specific host
+ansible-playbook -i inventory.ini main.yml --limit flask1
